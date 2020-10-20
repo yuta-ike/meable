@@ -1,15 +1,6 @@
 import React from 'react';
 import './App.css';
-import Task from './data/model/domain/task/task';
+import Entry from './view/Entry';
 
-function App() {
-  console.log(Task)
-
-  return (
-    <div className="App">
-      s
-    </div>
-  );
-}
-
+const App: React.FC = () => <Entry/>
 export default App;

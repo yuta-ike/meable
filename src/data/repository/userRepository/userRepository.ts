@@ -10,6 +10,10 @@ export default class UserRepository implements IUserRepository{
 
 	constructor(readonly datasource: UserDatasource){}
 
+	subscribe(callback: (item: AppUser | null) => void, key?: string){
+		this.datasource.subscribe(callback, key)
+	}
+
 	async login(){
 		const appUser = await this.datasource.login()
 		this._appUser = appUser

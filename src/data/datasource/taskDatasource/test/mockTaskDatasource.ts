@@ -12,13 +12,13 @@ type Callback = (tasks: Task[]) => void
 
 export default class MockTaskDatasource implements TaskDatasource{
 	_tasks: {[key: string]: Task[]} = {}
-	callbacks: { [key: string]: Callback[] } = {}
+	_callbacks: { [key: string]: Callback[] } = {}
 
 	subscribe(callback: Callback, key: string){
-		if (this.callbacks[key] == null){
-			this.callbacks[key] = [callback]
+		if (this._callbacks[key] == null){
+			this._callbacks[key] = [callback]
 		}else{
-			this.callbacks[key].push(callback)
+			this._callbacks[key].push(callback)
 		}
 	}
 
@@ -50,6 +50,6 @@ export default class MockTaskDatasource implements TaskDatasource{
 	}
 
 	_dispatch(userId: string){
-		Object.values(this.callbacks).forEach(callbacks => callbacks.forEach(callback => callback(this._tasks[userId])))
+		Object.values(this._callbacks).forEach(callbacks => callbacks.forEach(callback => callback(this._tasks[userId])))
 	}
 }

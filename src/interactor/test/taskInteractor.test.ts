@@ -7,7 +7,7 @@ import ITaskDatasource from "src/data/repository/taskRepositry/interface/taskDat
 import TaskRepository from "src/data/repository/taskRepositry/taskRepository"
 import UserRepository from "src/data/repository/userRepository/userRepository"
 import ITaskRepository from "src/usecase/interface/taskRepository"
-import TaskUseCase from "src/usecase/taskUsecase"
+import TaskUsecase from "src/usecase/taskUsecase"
 import TaskInteractor from "../taskInteractor"
 
 describe("taskInteractor", () => {
@@ -15,7 +15,7 @@ describe("taskInteractor", () => {
 	const taskRepository: ITaskRepository = new TaskRepository(taskDatasource)
 	const userDatasource = new MockUserDatasource()
 	const userRepository = new UserRepository(userDatasource)
-	const taskUsecase: TaskUseCase = new TaskInteractor(taskRepository, userRepository)
+	const taskUsecase: TaskUsecase = new TaskInteractor(taskRepository, userRepository)
 	const taskInput: AddTaskInput = { title: "課題1", body: "課題1の説明", genre: 1 }
 
 	test("ログイン前は課題の追加・確認・ポイント追加ができない", async () => {
