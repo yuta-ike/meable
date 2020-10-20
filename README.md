@@ -25,7 +25,7 @@ npm start
 
 ## 技術
 - フロントエンド
-  * React
+  * TypeScript/React/Create-React-App
 
 - バックエンド
   * Firebase（Firestore / Authentication）
