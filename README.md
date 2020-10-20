@@ -1,44 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# サービス名未定
 
-## Available Scripts
+Social CreatorsハッカソンのAチームの実装です。
 
-In the project directory, you can run:
+## サービス概要
+### 概略
+子供のSDGsへの取り組みをポイントとして集計するアプリケーション
+ソフト：アプリ、ハード：ステッカー
+各家庭で、SDGsの課題に取り組むことができる場所（下記参照）に専用のステッカーを貼っておき、子供が達成するたびに親がアプリ上で報告
+そのデータを先生と共有し、学校での授業に生かす。
+学校授業では、他の人と少人数グループで、自身の取り組みを発表しあい、フィードバックを行う。
+家庭用 ステッカーはすべて共通のもので、アプリ上で普段取り組む項目を家庭でリスト化する。ステッカーの貼る位置も各家庭で決める。（参考例は学校の導入授業で紹介）
 
-### `npm start`
+[詳細はここから](https://github.com/yuta-ike/education-web-app/wiki/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%A6%82%E8%A6%81)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 機能用件と実装状況
+[Wiki](https://github.com/yuta-ike/education-web-app/wiki/%E6%A9%9F%E8%83%BD%E7%94%A8%E4%BB%B6)に記載
 
-### `npm test`
+## 開発
+- 開発サーバ起動
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 技術
+- フロントエンド
+  * TypeScript/React/Create-React-App
 
-### `npm run build`
+- バックエンド
+  * Firebase（Firestore / Authentication）
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- デプロイ 
+ * 決まってない
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## エンジニアメンバー
+私だけ
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 開発期間
+  10/19 - 10/24
+  
