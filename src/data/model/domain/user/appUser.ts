@@ -6,4 +6,30 @@ export default class AppUser{
 		readonly classId: string,
 		readonly userName: string,
 	){}
+
+	get schoolSecret(): string {
+		return this.schoolId + this.classId
+	}
+
+	get primaryKeys(){
+		return { userId: this.userId, schoolSecret: this.schoolSecret }
+	}
+
+	isEqualTo(appUser: AppUser | null){
+		return appUser != null
+				&& this.userId === appUser.userId
+				&& this.email === appUser.email
+				&& this.schoolSecret === appUser.schoolSecret
+				&& this.userName === appUser.userName
+	}
+
+	toJson(){
+		return {
+			userId: this.userId,
+			email: this.email,
+			schoolId: this.schoolId,
+			classId: this.classId,
+			userName: this.userName
+		}
+	}
 }

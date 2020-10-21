@@ -12,7 +12,8 @@ const taskDataInit: Task[] = []
 const TaskDataContex = createContext<Task[]>(taskDataInit)
 const TaskDataContextProvider = TaskDataContex.Provider
 
-const TaskProvider: React.FC<{}> = ({ children }) => {
+
+const TaskProvider: React.FC = ({ children }) => {
 	const [taskUsecase] = useState<TaskUsecase>(taskUsecaseInit)
 	const [tasks, setTasks] = useState<Task[]>(taskDataInit)
 	

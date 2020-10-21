@@ -4,6 +4,7 @@ import Subscribable from "src/utils/subscribe/subscribable";
 export default interface UserUsecase extends Subscribable<AppUser | null> {
 	readonly appUser: AppUser | null
 	readonly isAuthenticated: boolean
+	register(schoolSecret: string): Promise<void>
 	login(): Promise<void>
 	logout(): Promise<void>
 	destroyUser(): Promise<void>

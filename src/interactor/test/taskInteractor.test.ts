@@ -25,7 +25,7 @@ describe("taskInteractor", () => {
 	})
 
 	test("タスクの追加と確認ができる", async () => {
-		await userRepository.login()
+		await userRepository.register()
 		await taskUsecase.addTask(taskInput)
 		const tasks = await taskUsecase.getAllTask()
 		expect(

@@ -1,28 +1,32 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useTaskUsecase } from 'src/Adapter/TaskProvider'
-import { useHistory } from 'react-router-dom'
+import { useTasks, useTaskUsecase } from 'src/Adapter/TaskProvider'
 import useAsync from 'src/utils/asyncState'
+import useRouting from 'src/view/router/useRouting'
 
 const TaskComplete: React.FC = () => {
+	const moveTo = useRouting()
 	const { taskId } = useParams<{taskId: string}>()
 	const taskUsecase = useTaskUsecase()
-	const history = useHistory()
-
-	const task = useAsync(() => taskUsecase.getTask(taskId))
+	const tasks = useTasks()
+	const task = tasks.find(task => task.id === taskId)
 
 	const handleGainPoint = () => {
-		taskUsecase.gainPoint(taskId, 1)
-		history.push("/")
+		taskUsecase.gainPoint(taskId, 2)
+		moveTo("/")()
 	}
 
+	if(task == null){
+		return (
+			<div>
+				タスクがみつかりませんでした
+			</div>
+		)
+	}
+	
 	return (
 		<div>
-			{
-				task.isSuccess() && (
-					<div>{task.data.title}</div>
-				)
-			}
+			<div>{task.title}</div>
 			<button onClick={handleGainPoint}>1ポイント獲得する</button>
 		</div>
 	)

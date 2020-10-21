@@ -16,8 +16,8 @@ const UserProvider: React.FC<{}> = ({ children }) => {
 	const [appUser, setAppUser] = useState<AppUser | null>(userUsecaseInit.appUser)
 
 	useEffect(() => {
-		userUsecase.subscribe((tasks) => {
-			setAppUser(tasks)
+		userUsecase.subscribe((_appUser) => {
+			setAppUser(_appUser)
 		}, "taskprovider")
 		// TODO: Unsubscribeの実装
 		// return taskUsecase.unsubscribe("taskprovider")

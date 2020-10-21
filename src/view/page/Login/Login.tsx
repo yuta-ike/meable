@@ -1,14 +1,18 @@
 import React from 'react'
 import { useUserUsecase } from 'src/Adapter/UserProvider'
 
-export default function Login() {
+const Login = () => {
 	const userUsecase = useUserUsecase()
-	const handleLogin = () => {
-		userUsecase.login()
+
+	const handleLogin = async () => {
+		await userUsecase.login()
 	}
+
 	return (
 		<div>
 			<button onClick={handleLogin}>ログイン</button>
 		</div>
 	)
 }
+
+export default Login

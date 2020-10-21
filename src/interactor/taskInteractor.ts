@@ -11,14 +11,24 @@ type SinkFunction = (tasks: Task[]) => void
 export default class TaskInteractor implements TaskUsecase{
 	constructor(readonly taskRepository: TaskRepository, readonly userRepository: UserRepository){}
 	
+	private tasks: Task[] = []
+
 	subscribe(callback: SinkFunction, key?: string){
-		this.taskRepository.subscribe(callback, key)
+		this.userRepository.subscribe((appUser) => {
+			if(appUser != null){
+				this.taskRepository.subscribe(appUser, (tasks) => {
+					callback(tasks)
+					this.tasks = tasks
+				}, key)
+			}
+		})
 	}
 
 	async getAllTask(){
-		const userId = this.userRepository.appUser?.userId
-		if (userId == null) throw new UnauthenticatedException()
-		return await this.taskRepository.getAllTask(userId)
+		// const appUser = this.userRepository.appUser
+		// if (appUser == null) throw new UnauthenticatedException()
+		// return await this.taskRepository.getAllTask(appUser)
+		return this.tasks
 	}
 
 	async getTask(taskId: string){
@@ -29,14 +39,14 @@ export default class TaskInteractor implements TaskUsecase{
 	}
 
 	async addTask(taskInput: AddTaskInput){
-		const userId = this.userRepository.appUser?.userId
-		if (userId == null) throw new UnauthenticatedException()
-		await this.taskRepository.addTask(userId, taskInput)
+		const appUser = this.userRepository.appUser
+		if (appUser == null) throw new UnauthenticatedException()
+		return await this.taskRepository.addTask(appUser, taskInput)
 	}
 
 	async gainPoint(taskId: string, point: number){
-		const userId = this.userRepository.appUser?.userId
-		if (userId == null) throw new UnauthenticatedException()
-		await this.taskRepository.gainPoint(userId, taskId, point)
+		const appUser = this.userRepository.appUser
+		if (appUser == null) throw new UnauthenticatedException()
+		await this.taskRepository.gainPoint(appUser, taskId, point)
 	}
 }

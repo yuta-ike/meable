@@ -5,6 +5,6 @@ import Subscribable from "src/utils/subscribe/subscribable";
 export default interface TaskUsecase extends Subscribable<Task[]>{
 	getAllTask(): Promise<Task[]>
 	getTask(taskId: string): Promise<Task>
-	addTask(taskInput: AddTaskInput): Promise<void>
+	addTask(taskInput: AddTaskInput): Promise<string>
 	gainPoint(taskId: string, point: number): Promise<void>
 }

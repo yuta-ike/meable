@@ -1,11 +1,11 @@
 import AppUser from "src/data/model/domain/user/appUser";
 import generateAppUser from "src/data/model/domain/user/faker/userFaker";
-import UserDatasource from "src/data/repository/userRepository/interface/userDatasource";
+import IUserDatasource from "src/data/repository/userRepository/interface/IUserDatasource";
 
 
 type Callback = (appUser: AppUser | null) => void
 
-export default class MockUserDatasource implements UserDatasource{
+export default class MockUserDatasource implements IUserDatasource{
 	_appUser: AppUser | null = null
 	_callbacks: Record<string, Callback[]> = {}
 
@@ -19,11 +19,14 @@ export default class MockUserDatasource implements UserDatasource{
 		}
 	}
 
-	async login(){
-		console.log("LOGIN")
+	async register(schoolSecret: string){
+		console.log(`REGISTER ${schoolSecret}`)
 		this._appUser = await Promise.resolve(generateAppUser())
 		this._dispatch()
-		return this._appUser
+	}
+
+	async login(){
+		console.log("LOGIN")
 	}
 
 	async logout(){

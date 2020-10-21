@@ -3,29 +3,33 @@ import UserUsecase from "src/usecase/userUsecase";
 import AppUser from "src/data/model/domain/user/appUser";
 
 export default class UserInteractor implements UserUsecase{
-	constructor(readonly appuserRepository: UserRepository){}
+	constructor(readonly userRepository: UserRepository){}
 	
 	subscribe(callback: (item: AppUser | null) => void, key?: string){
-		this.appuserRepository.subscribe(callback, key)
+		this.userRepository.subscribe(callback, key)
 	}
 
 	get appUser(){
-		return this.appuserRepository.appUser
+		return this.userRepository.appUser
 	}
 	
 	get isAuthenticated(){
-		return this.appuserRepository.isAuthenticated
+		return this.userRepository.isAuthenticated
 	}
 	
-	async login() {
-		this.appuserRepository.login()
+	async login(){
+		this.userRepository.login()
+	}
+
+	async register(schoolSecret: string) {
+		this.userRepository.register(schoolSecret)
 	}
 
 	async logout() {
-		this.appuserRepository.logout()
+		this.userRepository.logout()
 	}
 	
 	async destroyUser() {
-		this.appuserRepository.destroyUser()
+		this.userRepository.destroyUser()
 	}
 }
