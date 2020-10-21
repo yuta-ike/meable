@@ -10,13 +10,18 @@ const Home: React.FC<{}> = () => {
 		history.push("/task/create")
 	}
 
+	const handleGainPoint = (taskId: string) => {
+		history.push(`/task/${taskId}`)
+	}
+
 	return (
 		<div>
 			<button onClick={handleMove}>タスクを追加する</button>
 			{
 				tasks.map((task) => (
 					<div key={task.id}>
-						{task.title}: {task.body}
+						{task.title}: {task.body} （ポイント: {task.point}）
+						<button onClick={() => handleGainPoint(task.id)}>ポイントを獲得する</button>
 					</div>
 				))
 			}

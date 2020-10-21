@@ -11,8 +11,8 @@ const getId = () => `${id++}`
 type Callback = (tasks: Task[]) => void
 
 export default class MockTaskDatasource implements TaskDatasource{
-	_tasks: {[key: string]: Task[]} = {}
-	_callbacks: { [key: string]: Callback[] } = {}
+	_tasks: Record<string, Task[]> = {}
+	_callbacks: Record<string, Callback[]> = {}
 
 	subscribe(callback: Callback, key: string){
 		if (this._callbacks[key] == null){

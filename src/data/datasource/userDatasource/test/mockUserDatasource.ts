@@ -7,7 +7,7 @@ type Callback = (appUser: AppUser | null) => void
 
 export default class MockUserDatasource implements UserDatasource{
 	_appUser: AppUser | null = null
-	_callbacks: { [key: string]: Callback[] } = {}
+	_callbacks: Record<string, Callback[]> = {}
 
 	//TODO: replace with uuid
 	// TODO: 最初のディスパッチのタイミング

@@ -1,5 +1,6 @@
 import Task from "src/data/model/domain/task/task";
 import AddTaskInput from "src/data/model/dto/addTaskInput";
+import TaskUnfoundException from "src/data/model/error/taskUnfoundException";
 import UnauthenticatedException from "src/data/model/error/unauthenticatedException";
 import TaskUsecase from "src/usecase/taskUsecase";
 import TaskRepository from "../usecase/interface/taskRepository";
@@ -18,6 +19,13 @@ export default class TaskInteractor implements TaskUsecase{
 		const userId = this.userRepository.appUser?.userId
 		if (userId == null) throw new UnauthenticatedException()
 		return await this.taskRepository.getAllTask(userId)
+	}
+
+	async getTask(taskId: string){
+		const tasks = await this.getAllTask()
+		const task = tasks.find(task => task.id === taskId)
+		if(task == null) throw new TaskUnfoundException()
+		return task
 	}
 
 	async addTask(taskInput: AddTaskInput){
