@@ -56,6 +56,7 @@
 			margin-bottom: 2rem;
 			background: rgb(224, 224, 224);
 			transition: all .3s;
+			cursor: pointer;
 
 			&:active{
 				transform: scale(.95);
@@ -106,6 +107,7 @@
 		.icon{
 			align-self: center;
 			width: 100px;
+			cursor: pointer;
 
 			transition: all .3s;
 			&:active{

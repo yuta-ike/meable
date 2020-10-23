@@ -52,6 +52,7 @@ body{
 @mixin userSelectNone{
 	-webkit-user-select: none;
 	-moz-user-select: none;
+	cursor: pointer;
 }
 
 @import "./view/page/Home/home";

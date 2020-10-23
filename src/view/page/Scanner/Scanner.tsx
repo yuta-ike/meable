@@ -24,7 +24,7 @@ export default function Scanner() {
 				delay={300}
 				onError={handleError}
 				onScan={handleScan}
-				style={{ width: '100%' }}
+				style={{ width: '100%', maxHeight: '70%' }}
 			/>
 			<div className="back-button-wrapper">
 				<div className="back-button" role="button" onClick={moveTo(`/`, { delay: true })}>もどる</div>
