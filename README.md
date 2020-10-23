@@ -1,11 +1,11 @@
-# サービス名未定
+# MeAble
 
 Social CreatorsハッカソンのAチームの実装です。
 
-[サービスを利用する](https://social-creators-kyoto.web.app/)
+[サービスはこちらから！ぜひ使ってみてください](https://social-creators-kyoto.web.app/)
 
 ### 利用方法
-- モバイル向けUIです（PC/タブレットでも特にデザイン崩れはなく快適に使えます。PCの場合はカメラ機能付き推奨です）
+- 推奨デバイス スマートフォン（PC、タブレットでも**ほぼ**問題なく利用できます）
 - Googleアカウントでのログインが必須です
 - ひみつのことばは「ABCDEF」（全て大文字）です。実際には、学校/クラスごとに一意な文字列が割り振られます。
 - オレンジ色のポイント表示をタップするとポイントの獲得履歴を見ることができます
@@ -33,12 +33,18 @@ Social CreatorsハッカソンのAチームの実装です。
 
 
 ## 機能用件と実装状況
-[Wiki](https://github.com/yuta-ike/education-web-app/wiki/%E6%A9%9F%E8%83%BD%E7%94%A8%E4%BB%B6)に記載
+[Wiki](https://github.com/yuta-ike/education-web-app/wiki/%E6%A9%9F%E8%83%BD%E7%94%A8%E4%BB%B6%E3%81%A8%E5%AE%9F%E8%A3%85%E7%8A%B6%E6%B3%81)に記載
 
 ## 開発
 - 開発サーバ起動
 ```
 npm start
+```
+
+- デプロイ 
+```
+npm run-script build
+firebase deploy
 ```
 
 ## 技術
@@ -49,7 +55,7 @@ npm start
   * Firebase（Firestore / Authentication / Hosting）
 
 - デプロイ 
- * Firebase Hosting
+  * Firebase Hosting
 
 ## エンジニアメンバー
 私だけ
