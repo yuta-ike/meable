@@ -8,6 +8,7 @@ const UnauthorizedRouter: React.FC<ComponentProps<typeof Route>> = ({ ...props }
 	const appUser = useAppUser()
 
 	const isAuthenticated = appUser != null
+	const isRegistered = appUser?.schoolSecret !== "" ?? false
 
 	if (!isAuthenticated){
 		return <Route {...props}/>

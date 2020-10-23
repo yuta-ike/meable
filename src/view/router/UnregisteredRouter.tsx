@@ -7,6 +7,7 @@ const UnregisteredRouter: React.FC<ComponentProps<typeof Route>> = ({ ...props }
 
 	const isAuthenticated = appUser != null
 	const isRegistered = appUser?.schoolSecret !== "" ?? false
+	console.log(appUser)
 
 	if (isAuthenticated && !isRegistered) {
 		return <Route {...props} />

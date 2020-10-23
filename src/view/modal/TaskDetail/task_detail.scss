@@ -1,0 +1,149 @@
+.task-modal{
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	padding: .5em;
+
+	.task-title{
+		width: 100%;
+		border-bottom: 3px solid $primary-light;
+		text-align: center;
+		font-size: 140%;
+		margin: 2rem 1rem 1.5rem 0;
+	}
+
+	$chip-size: 5rem;
+	.task-point{
+		position: absolute;
+		top: -3rem;
+		right: -1rem;
+		background: $accent-color;
+		color: $white;
+		border-radius: 50%;
+		width: $chip-size;
+		height: $chip-size;
+		text-align: center;
+		line-height: 1.5rem;
+		font-weight: bold;
+		border: 2px solid $white;
+		box-shadow: 0px 0px 0px 2px $accent-color;
+		transform: rotate(5deg);
+		font-size: 2em;
+
+		.task-point-prefix{
+			font-size: .5rem;
+		}
+
+		.task-point-unit{
+			font-size: .85rem;
+		}
+	}
+
+	.task-body{
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+		margin-bottom: 1rem;
+
+		.task-description-label{
+			text-align: center;
+			padding: .25em 1em;
+			background: $primary-light;
+			color: $white;
+			font-size: small;
+			font-weight: bold;
+			margin: .5rem auto;
+		}
+
+		.task-description{
+			text-align: center;
+			border-radius: 10px;
+			border: 2px solid $primary-light;
+			padding: .5em;
+		}
+	}
+
+	.modal-actions{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		width: 100%;
+		margin-bottom: 2rem;
+
+		.icon-wrapper{
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.icon-label{
+				text-align: center;
+				padding: .25em 1em;
+				background: $primary-light;
+				color: $white;
+				font-size: small;
+				font-weight: bold;
+				margin: .5rem auto;
+			}
+
+			.icon{
+				width: 100px;
+				height: 100px;
+			}
+		}
+
+		.print-button-wrapper{
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.print-button-label{
+				text-align: center;
+				padding: .25em 1em;
+				background: $primary-light;
+				color: $white;
+				font-size: small;
+				font-weight: bold;
+				margin: .5rem auto;
+			}
+			.print-button{
+				text-align: center;
+				font-size: 80%;
+				padding: .5em;
+				border-radius: 10px;
+				background: $primary-dark;
+				color: $white;
+
+				transition: all .3s;
+
+				&:active{
+					transform: scale(.9);
+				}
+			}
+		}
+	}
+
+	.close-button-wrapper{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		
+		.close-button{
+			background: $primary-light;
+			color: $white;
+			border-radius: 2em;
+			font-weight: bold;
+			padding: .5em 2em;
+
+			transition: all .3s;
+
+			&:active{
+				background: $primary-dark;
+				transform: scale(.95);
+			}
+		}
+	}
+}

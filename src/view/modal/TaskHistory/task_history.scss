@@ -1,0 +1,112 @@
+.task-history-modal-component{
+	padding: 2rem .5em .5em .5em;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	box-sizing: border-box;
+
+	.task-history-title{
+		width: 100%;
+		border-bottom: 3px solid $primary-light;
+		text-align: center;
+		font-size: 140%;
+		margin-bottom: 1.5rem;
+	}
+
+	.task-history-list{
+		max-height: 60vh;
+		overflow-y: scroll;
+		margin: 0 .5rem;
+
+		.log-item{
+			display: flex;
+			width: 100%;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid #cfcfcf;
+			box-sizing: border-box;
+			padding: .5rem .5rem;
+			
+			.log-left-wrapper{
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+
+				.log-date{
+					font-size: 75%;
+				}
+			}
+
+			.log-point-wrapper{
+				padding-left: 1em;
+				width: $chip-size;
+
+				$chip-size: 2.5rem;
+				.log-point{
+					background: $accent-color;
+					color: $white;
+					border-radius: 50%;
+					width: $chip-size;
+					height: $chip-size;
+					text-align: center;
+					line-height: $chip-size;
+					font-weight: bold;
+					border: 2px solid $white;
+					box-shadow: 0px 0px 0px 2px $accent-color;
+					font-size: 1em;
+				}
+			}
+		}
+	}
+
+	.submit-button-wrapper{
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.submit-button{
+			background: $primary-light;
+			color: $white;
+			border-radius: 2em;
+			font-weight: bold;
+			padding: .5em 2em;
+			margin: 1rem 0rem 2rem 0rem;
+
+			&.submit-button-disabled{
+				background: rgb(187, 187, 187);
+			}
+
+			transition: all .3s;
+			&:not(.submit-button-disabled):active{
+				background: $primary-dark;
+				transform: scale(.95);
+			}
+		}
+	}
+}
+
+.ReactModal__Content--after-open.task-history-modal-component{
+	animation-name: slidein;
+	animation-duration: 1s;
+}
+
+.ReactModal__Content--before-close.task-history-modal-component{
+	animation-name: slideout;
+	animation-duration: 1s;
+}
+
+@keyframes slidein {
+	0% {transform: translateY(100%);}
+	10% {transform: translateY(30%);}
+	20% {transform: translateY(10%);}
+	40% {transform: translateY(-7%);}
+	60% {transform: translateY(8%);}
+	100% {transform: translateY(0);}
+}
+
+
+@keyframes slideout {
+	0% {transform: translateY(0);}
+	100% {transform: translateY(100%);}
+}

@@ -17,19 +17,19 @@ export default class UserInteractor implements UserUsecase{
 		return this.userRepository.isAuthenticated
 	}
 	
-	async login(){
-		this.userRepository.login()
+	login(){
+		return this.userRepository.login()
 	}
 
-	async register(schoolSecret: string) {
-		this.userRepository.register(schoolSecret)
+	register(schoolSecret: string) {
+		return this.userRepository.register(schoolSecret)
 	}
 
-	async logout() {
-		this.userRepository.logout()
+	logout() {
+		return this.userRepository.logout()
 	}
 	
-	async destroyUser() {
-		this.userRepository.destroyUser()
+	destroyUser() {
+		return this.userRepository.destroyUser()
 	}
 }

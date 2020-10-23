@@ -1,0 +1,60 @@
+.task-complete-modal{
+	padding: 2rem .5em .5em .5em;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	.task-complete-modal-title{
+		border-bottom: 3px solid $primary-light;
+		text-align: center;
+		font-size: 140%;
+		margin-bottom: 1.5rem;
+	}
+
+	.task-complete-description-label{
+		text-align: center;
+		padding: .25em 1em;
+		background: $primary-light;
+		color: $white;
+		font-size: small;
+		font-weight: bold;
+		margin: .5rem auto;
+	}
+
+	.task-complete-modal-description{
+		margin-bottom: 1rem;
+		font-size: 16px;
+		padding: .7rem 0.75rem;
+		border-radius: .5rem;
+		border: 2px solid $primary-light;
+		text-align: center;
+	}
+
+	// .task-point-wrapper{
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	.task-point{
+	// 		background: $accent-color;
+	// 		color: $white;
+	// 	}
+	// }
+
+	.submit-button-wrapper{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 2rem 0 4rem 0;
+		
+		.submit-button{
+			background: $primary-dark;
+			color: $white;
+			border-radius: 2em;
+			font-weight: bold;
+			padding: .5em 2em;
+
+			&.submit-button-disabled{
+				background: rgb(187, 187, 187);
+			}
+		}
+	}
+}

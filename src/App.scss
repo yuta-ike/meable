@@ -1,0 +1,66 @@
+$primary-color: #c1fa8c;
+$primary-dark: hsl(91, 75%, 40%);
+$primary-light: rgb(182, 209, 98);
+$accent-color: #ff7322;
+$accent-dark: #e4671e;
+$accent-shadow-color: #c26418;
+$black: #333333;
+$white: #fdfdfd;
+$bottom-bar-height: 40px;
+$safe-area-bottom: $bottom-bar-height + 30px;
+
+// $basic-shadow: 6px 3px 0px 0px $accent-shadow-color;
+@function basic-shadow($color) {
+  @return 6px 3px 0px 0px $color;
+}
+
+body{
+  color: $black;
+  font-family: 'M PLUS Rounded 1c';
+  overflow: hidden;
+	box-sizing: border-box;
+}
+
+
+.ReactModal__Overlay{
+	background: rgba(0,0,0,0.5) !important;
+
+	.ReactModal__Content--after-open{
+		border: none !important;
+		background: $white !important;
+		
+	}
+}
+
+.ReactModal__Content{
+	outline: none;
+}
+
+.ReactModal__Content--after-open.task-modal-component{
+	animation-name: bound;
+	animation-duration: .75s;
+}
+
+@keyframes bound {
+	0% {transform: translate(-50%, -55%) scaleY(.5);}
+	20% {transform: translate(-50%, -55%) scaleY(0.9);}
+	40% {transform: translate(-50%, -55%) scaleY(1);}
+	60% {transform: translate(-50%, -55%) scaleY(0.9);}
+	100% {transform: translate(-50%, -55%) scaleY(1);}
+}
+
+@mixin userSelectNone{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+@import "./view/page/Home/home";
+@import "./view/page/Login/login_page";
+@import "./view/page/Register/register_page";
+@import "./view/modal/TaskCreate/task_create";
+@import "./view/modal/TaskComplete/task_complete";
+@import "./view/modal/TaskDetail/task_detail";
+@import "./view/modal/TaskHistory/task_history";
+@import "./view/page/QRPage/qr_page";
+@import "./view/page/Scanner/scanner";
+@import "./view/page/Splash/splash";

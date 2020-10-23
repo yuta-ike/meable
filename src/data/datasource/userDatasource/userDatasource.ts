@@ -22,13 +22,21 @@ export default class UserDatasource implements IUserDatasource{
 			if(user == null){
 				this.appUser = null
 			}else{
-				const snapshots = await firestore.collectionGroup("Students").where("userId", "==", user?.uid).get()
-				if (snapshots.empty){
+				try{
+					console.log("AAA", user?.uid)
+					// const snapshots = await firestore.collectionGroup("Students").where("userId", "==", user?.uid).get()
+					const snapshot = await firestore.collection("Affiliation").doc(user.uid).get()
+					console.log("BBB")
+					if (!snapshot.exists) {
+						this.appUser = toAppUser(user)
+					}else{
+						const _user = snapshot.data()
+						const appUser = toAppUser(user, _user?.schoolId, _user?.classId)
+						this.appUser = appUser
+					}
+				}catch(e){
+					console.log(e)
 					this.appUser = toAppUser(user)
-				}else{
-					const _user = snapshots.docs[0].data()
-					const appUser = toAppUser(user, _user.schoolId, _user.classId)
-					this.appUser = appUser
 				}
 			}
 		})
@@ -57,13 +65,14 @@ export default class UserDatasource implements IUserDatasource{
 				createdAt: firebase.firestore.FieldValue.serverTimestamp(),
 				updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
 			})
+			await firestore.collection("Affiliation").doc(appUser.userId).set({ schoolId, classId })
 			this.appUser = new AppUser(appUser.userId, appUser.email, schoolId, classId, appUser.userName)
 		} catch (e) {
 			// TODO: エラーハンドリング改善
 			//もしschoolが存在しなければ
 			// classが存在しなければ
 			console.log(e)
-			throw new FormInvalidException({"schoolSecret": "ひみつ の ことば が まちがって います"})
+			return Promise.reject(new FormInvalidException({"schoolSecret": "ひみつ の ことば が まちがって います"}))
 		}
 	}
 

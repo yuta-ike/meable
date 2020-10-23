@@ -18,16 +18,16 @@ export default class UserRepository implements IUserRepository{
 		this.datasource.subscribe(callback, key)
 	}
 
-	async login(){
-		await this.datasource.login()
+	login(){
+		return this.datasource.login()
 	}
 
-	async register(schoolSecret: string){
-		await this.datasource.register(schoolSecret)
+	register(schoolSecret: string){
+		return this.datasource.register(schoolSecret)
 	}
 
 	async logout(){
-		if (this.appUser == null) throw new UnauthenticatedException()
+		if (this.appUser == null) return Promise.reject(new UnauthenticatedException())
 		try{
 			await this.datasource.logout()
 			this._appUser = null
@@ -37,7 +37,7 @@ export default class UserRepository implements IUserRepository{
 	}
 
 	async destroyUser(){
-		if (this.appUser == null) throw new UnauthenticatedException()
+		if (this.appUser == null) return Promise.reject(new UnauthenticatedException())
 		return this.datasource.destroyUser(this.appUser)
 	}
 }

@@ -1,0 +1,188 @@
+$chip-size: 3.5rem;
+.home-page{
+	box-sizing: border-box;
+	background: $primary-color;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+
+	.point-area{
+		margin: .5em 0em;
+		width: 100vw;
+		max-width: 80%;
+		background-size: auto auto;
+		background: $accent-color;
+		background-image: repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(255, 217, 217, 0.37) 12px, rgba(255, 217, 217, 0.37) 20px );
+		border-radius: 12px;
+		padding: .25em .5em .5em .5em;
+		box-shadow: basic-shadow($accent-shadow-color);
+		position: relative;
+
+		transition: all .3s;
+		&:active{
+			box-shadow: none;
+			transform: scale(.95);
+		}
+
+		.point-label{
+			color: $white;
+			text-align: center;
+			font-size: 130%;
+			font-weight: bold;
+		}
+
+		.point-data{
+			position: relative;
+			text-align: center;
+			border-radius: 12px;
+			width: 100%;
+			font-size: 200%;
+			background: $white;
+			padding: .15em 0em;
+			font-weight: bold;
+			// background: transparent;
+
+			&::after{
+				position: absolute;
+				content: "pt";
+				right: 20px;
+				bottom: .4em;
+				font-size: 75%;
+			}
+		}
+	}
+	.task-list{
+		width: calc(100% - 2em);
+		overflow-y: scroll;
+		padding: 0 1em $safe-area-bottom 1em;
+		
+		.task-item{
+			margin: 1.5em 0em;
+			padding: 1em $chip-size 1em 1em;
+			list-style: none;
+			background: $white;
+			border: 2px solid $primary-dark;
+			border-radius: 30px;
+			box-shadow: basic-shadow($primary-dark);
+			position: relative;
+			@include userSelectNone();
+
+			transition: all .3s;
+
+			&:active{
+				box-shadow: none;
+				transform: scale(.95);
+			}
+
+			.task-title{
+				&::before{
+					content: "●";
+					color: $primary-dark;
+					margin-right: .75em;
+				}
+			}
+
+			.task-point{
+				position: absolute;
+				top: -1rem;
+				right: -.25rem;
+				background: $accent-color;
+				color: $white;
+				border-radius: 50%;
+				width: $chip-size;
+				height: $chip-size;
+				text-align: center;
+				line-height: 1.25rem;
+				font-weight: bold;
+				border: 2px solid $white;
+				box-shadow: 0px 0px 0px 2px $accent-color;
+				transform: rotate(5deg);
+				font-size: 1.25em;
+
+				.task-point-prefix{
+					font-size: .5rem;
+				}
+
+				.task-point-unit{
+					font-size: .85rem;
+				}
+			}
+		}
+	}
+}
+
+.logout-button-wrapper{
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem;
+
+	.logout-button{
+		background: $primary-light;
+		color: $white;
+		border-radius: 2em;
+		font-weight: bold;
+		padding: .5em;
+	}
+
+	.cancel-button{
+		background: rgb(168, 168, 168);
+		color: $white;
+		border-radius: 2em;
+		font-weight: bold;
+		padding: .5em;
+
+	}
+}
+
+.bottom-bar{
+	position: fixed;
+	padding: .5rem;
+	bottom: 0;
+	width: 100vw;
+	height: $bottom-bar-height;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	background: $primary-light;
+	color: $white;
+	// box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.6);
+
+	.bottom-bar-button{
+		display: flex;
+		padding: .5rem 1rem;
+		width: 1em;
+		height: 1em;
+		font-size: 1.5rem;
+
+		&.center-button-outer{
+			position: relative;
+			
+			.center-button{
+				position: absolute;
+				bottom: .25rem;
+				background: $accent-color;
+				box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.6);
+				
+				display: flex;
+				padding: 1rem;
+				width: 1em;
+				height: 1em;
+				left: -.5rem;
+				border-radius: 50%;
+				font-size: 2rem;
+
+				transition: all .3s;
+
+				&:hover, &:active{
+					background: $accent-dark;
+					box-shadow: none;
+				}
+
+				&:active{
+					transform: scale(.9);
+				}
+			}
+		}
+	}
+}

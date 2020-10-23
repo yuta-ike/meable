@@ -1,0 +1,132 @@
+.task-create-modal{
+	padding: 2rem .5em .5em .5em;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	.tab-wrapper{
+		display: flex;
+		flex-direction: row;
+		width: 200%;
+	}
+
+	.task-modal-title{
+		width: 100%;
+		border-bottom: 3px solid $primary-light;
+		text-align: center;
+		font-size: 140%;
+		margin-bottom: 1.5rem;
+	}
+
+	.task-create-title-label{
+		margin-bottom: .5rem;
+	}
+	.task-create-title{
+		margin-bottom: 1rem;
+		font-size: 16px;
+		padding: .7rem 0.75rem;
+		border-radius: .5rem;
+		border: 1px solid $black;
+	}
+
+	.task-create-description-modal{
+		margin-bottom: .5rem;
+	}
+	.task-create-description{
+		margin-bottom: 1rem;
+		font-size: 16px;
+		padding: .7rem 0.75rem;
+		border-radius: .5rem;
+		border: 1px solid $black;
+	}
+
+	.selected-genre{
+		text-align: center;
+		font-weight: bold;
+		margin-top: 1em;
+	}
+	.icon-wrapper{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 1rem;
+		.icon{
+			width: 150px;
+			height: 150px;
+			margin-bottom: 2rem;
+			background: rgb(224, 224, 224);
+			transition: all .3s;
+
+			&:active{
+				transform: scale(.95);
+				background:rgb(184, 184, 184);
+			}
+		}
+	}
+
+	.submit-button-wrapper{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		
+		.submit-button{
+			@include userSelectNone();
+
+			background: $primary-light;
+			color: $white;
+			border-radius: 2em;
+			font-weight: bold;
+			padding: .5em 2em;
+			margin-bottom: 4rem;
+
+			&.submit-button-disabled{
+				background: rgb(187, 187, 187);
+			}
+			
+			transition: all .3s;
+			&:not(.submit-button-disabled):active{
+				background: $primary-dark;
+				transform: scale(.9);
+			}
+		}
+	}
+
+	.task-genre-label{
+		margin-bottom: 1rem;
+	}
+
+	.icon-list{
+		padding: 0 5px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		gap: 10px;
+		align-items: center;
+		justify-items: center;
+
+		.icon{
+			align-self: center;
+			width: 100px;
+
+			transition: all .3s;
+			&:active{
+				transform: scale(.95);
+				background:rgb(184, 184, 184);
+				filter: saturate(60%);
+			}
+		}
+	}
+}
+
+.ReactModal__Content--after-open.task-create-modal-component{
+	animation-name: slidein;
+	animation-duration: 1s;
+}
+
+@keyframes slidein {
+	0% {transform: translateY(100%);}
+	10% {transform: translateY(30%);}
+	20% {transform: translateY(10%);}
+	40% {transform: translateY(-7%);}
+	60% {transform: translateY(8%);}
+	100% {transform: translateY(0);}
+}

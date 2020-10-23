@@ -4,7 +4,6 @@ import TaskProvider from 'src/Adapter/TaskProvider'
 import PrivateRoute from './router/PrivateRouter'
 import Home from './page/Home/Home'
 import TaskComplete from './page/TaskComplete/TaskComplete'
-import TaskCreate from './page/TaskCreate/TaskCreate'
 import UnauthorizedRouter from './router/UnauthorizedRouter'
 import Login from './page/Login/Login'
 import UserProvider from 'src/Adapter/UserProvider'
@@ -15,6 +14,7 @@ import Splash from './page/Splash/Splash'
 import { useEffect } from 'react'
 import { firebaseAuth } from 'src/firebase/initFirebaes'
 import Scanner from './page/Scanner/Scanner'
+import QRPage from './page/QRPage/QRPage'
 
 const Entry: React.FC = () => {
 	// TODO: Repository層に依存してしまっている
@@ -30,14 +30,17 @@ const Entry: React.FC = () => {
 		<Router>
 			<TaskProvider>
 				<UserProvider>
-					<Route exact path="/login" children={isLoading && Splash} />
+					<Route path="/" children={isLoading && Splash} />
 					<Switch>
 						<UnauthorizedRouter exact path="/login" component={Login} />
 						<UnauthorizedRouter exact path="/logout" component={Logout} />
 						<UnregisteredRouter exact path="/register" component={Register} />
 						<PrivateRoute exact path="/" component={Home} />
-						<PrivateRoute exact path="/task/create" component={TaskCreate} />
-						<PrivateRoute exact path="/task/:taskId" component={TaskComplete} />
+						<PrivateRoute exact path="/task/create" render={() => <Home showCreateDialog={true}/>} />
+						<PrivateRoute exact path="/task/:taskId/gain" render={(props) => <Home showCompleteDialog={true} taskId={props.match.params.taskId}/>} />
+						<PrivateRoute exact path="/task/:taskId/qr" component={QRPage} />
+						<PrivateRoute exact path="/task/:taskId" render={(props) => <Home showTaskDialog={true} taskId={props.match.params.taskId}/>} />
+						<PrivateRoute exact path="/history" component={() => <Home showHistoryDialog={true} />} />
 						<PrivateRoute exact path="/scanner" component={Scanner}/>
 					</Switch>
 				</UserProvider>

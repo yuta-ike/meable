@@ -11,7 +11,7 @@ const TaskComplete: React.FC = () => {
 	const tasks = useTasks()
 	const task = tasks.find(task => task.id === taskId)
 
-	const handleGainPoint = () => {
+	const handleGainPoint = async () => {
 		taskUsecase.gainPoint(taskId, 2)
 		moveTo("/")()
 	}

@@ -9,8 +9,11 @@ const Login = () => {
 	}
 
 	return (
-		<div>
-			<button onClick={handleLogin}>ログイン</button>
+		<div className="login-page">
+			<div className="header"/>
+			<div className="login-button" role="button" onClick={handleLogin}>
+				<div className="login-label">みあぶる を はじめる！<br/><span className="login-caption">（Googleでログイン）</span></div>
+			</div>
 		</div>
 	)
 }

@@ -15,7 +15,7 @@ export default class TaskInteractor implements TaskUsecase{
 
 	subscribe(callback: SinkFunction, key?: string){
 		this.userRepository.subscribe((appUser) => {
-			if(appUser != null){
+			if(appUser != null && appUser.schoolId !== ""){
 				this.taskRepository.subscribe(appUser, (tasks) => {
 					callback(tasks)
 					this.tasks = tasks
@@ -29,6 +29,11 @@ export default class TaskInteractor implements TaskUsecase{
 		// if (appUser == null) throw new UnauthenticatedException()
 		// return await this.taskRepository.getAllTask(appUser)
 		return this.tasks
+	}
+
+	getTaskLog(){
+		const taskLogs = this.tasks.map((task) => task.pointHistory.map((pointLog) => ({task, ...pointLog}))).flat()
+		return taskLogs
 	}
 
 	async getTask(taskId: string){
