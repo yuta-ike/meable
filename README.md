@@ -41,6 +41,12 @@ Social CreatorsハッカソンのAチームの実装です。
 npm start
 ```
 
+- デプロイ 
+```
+npm run-script build
+firebase deploy
+```
+
 ## 技術
 - フロントエンド
   * TypeScript/React/Create-React-App
