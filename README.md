@@ -1,4 +1,4 @@
-# サービス名未定
+# MeAble
 
 Social CreatorsハッカソンのAチームの実装です。
 
@@ -49,7 +49,7 @@ npm start
   * Firebase（Firestore / Authentication / Hosting）
 
 - デプロイ 
- * Firebase Hosting
+  * Firebase Hosting
 
 ## エンジニアメンバー
 私だけ
