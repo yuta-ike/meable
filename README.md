@@ -33,7 +33,7 @@ Social CreatorsハッカソンのAチームの実装です。
 
 
 ## 機能用件と実装状況
-[Wiki](https://github.com/yuta-ike/education-web-app/wiki/%E6%A9%9F%E8%83%BD%E7%94%A8%E4%BB%B6)に記載
+[Wiki](https://github.com/yuta-ike/education-web-app/wiki/%E6%A9%9F%E8%83%BD%E7%94%A8%E4%BB%B6%E3%81%A8%E5%AE%9F%E8%A3%85%E7%8A%B6%E6%B3%81)に記載
 
 ## 開発
 - 開発サーバ起動
