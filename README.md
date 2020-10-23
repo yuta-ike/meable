@@ -2,7 +2,7 @@
 
 Social CreatorsハッカソンのAチームの実装です。
 
-[サービスを利用する](https://social-creators-kyoto.web.app/)
+[サービスはこちらから！ぜひ使ってみてください](https://social-creators-kyoto.web.app/)
 
 ### 利用方法
 - モバイル向けUIです（PC/タブレットでも特にデザイン崩れはなく快適に使えます。PCの場合はカメラ機能付き推奨です）
