@@ -37,6 +37,12 @@ Social CreatorsハッカソンのAチームの実装です。
 ## 使用技術・アーキテクチャ
 [使用技術・アーキテクチャ](https://github.com/yuta-ike/education-web-app/wiki/%E4%BD%BF%E7%94%A8%E6%8A%80%E8%A1%93%E3%81%A8%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3)
 
+||使用技術|
+|:----|:----|
+|フロントエンド|TypeScript / React / Create-React-App|
+|バックエンド|Firebase（Firestore / Authentication / Hosting）|
+|デプロイ|Firebase Hosting|
+
 ## 開発
 - 開発サーバ起動
 ```
@@ -48,16 +54,6 @@ npm start
 npm run-script build
 firebase deploy
 ```
-
-## 技術
-- フロントエンド
-  * TypeScript/React/Create-React-App
-
-- バックエンド
-  * Firebase（Firestore / Authentication / Hosting）
-
-- デプロイ 
-  * Firebase Hosting
 
 ## エンジニアメンバー
 私だけ
