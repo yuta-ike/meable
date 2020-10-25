@@ -35,13 +35,15 @@ Social CreatorsハッカソンのAチームの実装です。
 [Wiki](https://github.com/yuta-ike/education-web-app/wiki/%E6%A9%9F%E8%83%BD%E7%94%A8%E4%BB%B6%E3%81%A8%E5%AE%9F%E8%A3%85%E7%8A%B6%E6%B3%81)に記載
 
 ## 使用技術・アーキテクチャ
-[使用技術・アーキテクチャ](https://github.com/yuta-ike/education-web-app/wiki/%E4%BD%BF%E7%94%A8%E6%8A%80%E8%A1%93%E3%81%A8%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3)
+[詳細はこちらから](https://github.com/yuta-ike/education-web-app/wiki/%E4%BD%BF%E7%94%A8%E6%8A%80%E8%A1%93%E3%81%A8%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3)
 
 ||使用技術|
 |:----|:----|
 |フロントエンド|TypeScript / React / Create-React-App|
 |バックエンド|Firebase（Firestore / Authentication / Hosting）|
 |デプロイ|Firebase Hosting|
+
+タスク管理にGithub Issueを使おうとしましたが途中から使うのを忘れていました。
 
 ## 開発
 - 開発サーバ起動
