@@ -3,7 +3,10 @@ Social CreatorsハッカソンのAチームの実装です。
 [サービスはこちらから！ぜひ使ってみてください](https://social-creators-kyoto.web.app/)
 
 **チームで優秀賞、個人でエンジニア賞をいただきました！！！！！！！！！！嬉しい！！！！！！！！！！！！**
+
 技術を感じさせないシームレスな体験とクリーンアーキテクチャを採用した点を褒めていただけました。
+
+動画・画面イメージ → https://github.com/yuta-ike/education-web-app/wiki#%E5%8B%95%E7%94%BB
 
 ## 利用方法
 [利用方法](https://github.com/yuta-ike/education-web-app/wiki/%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95)
