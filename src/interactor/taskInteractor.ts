@@ -33,6 +33,13 @@ export default class TaskInteractor implements TaskUsecase{
 
 	getTaskLog(){
 		const taskLogs = this.tasks.map((task) => task.pointHistory.map((pointLog) => ({task, ...pointLog}))).flat()
+		taskLogs.sort((a, b) => {
+			if (a.gainedAt == null || b.gainedAt == null) {
+				return 0
+			} else {
+				return a.gainedAt > b.gainedAt ? 1 : a.gainedAt < b.gainedAt ? -1 : 0
+			}
+		})
 		return taskLogs
 	}
 

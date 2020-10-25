@@ -32,4 +32,8 @@ export default class AppUser{
 			userName: this.userName
 		}
 	}
+
+	static fromJson(data: Record<string, any>){
+		return new AppUser(data.userId, data.email, data.schoolId, data.classId, data.userName)
+	}
 }

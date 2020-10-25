@@ -6,7 +6,7 @@ describe("mockTaskDatasourceのテスト", () => {
 	const userId = "userid2"
 	const taskDatasource: TaskDatasource = new MockTaskDatasource()
 
-	test("タスクの追加と取得", async () => {
+	test("ミッションの追加と取得", async () => {
 		// const task = generateTask()
 		// await taskDatasource.addTask(userId, task)
 		// const tasks = await taskDatasource.getAllTasks(userId)

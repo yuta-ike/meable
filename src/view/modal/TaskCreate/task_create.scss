@@ -19,25 +19,38 @@
 	}
 
 	.task-create-title-label{
+		margin-top: 1rem;
 		margin-bottom: .5rem;
 	}
 	.task-create-title{
-		margin-bottom: 1rem;
 		font-size: 16px;
 		padding: .7rem 0.75rem;
 		border-radius: .5rem;
 		border: 1px solid $black;
 	}
 
+	.error-message{
+		font-size: small;
+		color: orangered;
+		margin-top: .5rem;
+	}
+
+	.task-create-description-label{
+		margin-top: 1rem;
+	}
+
 	.task-create-description-modal{
 		margin-bottom: .5rem;
 	}
 	.task-create-description{
-		margin-bottom: 1rem;
 		font-size: 16px;
 		padding: .7rem 0.75rem;
 		border-radius: .5rem;
 		border: 1px solid $black;
+	}
+
+	.sdgs-label{
+		margin-top: 1rem;
 	}
 
 	.selected-genre{
@@ -94,6 +107,13 @@
 
 	.task-genre-label{
 		margin-bottom: 1rem;
+	}
+
+	.gray-icon{
+		text-align: center;
+		line-height: 150px;
+		vertical-align: middle;
+		color: gray;
 	}
 
 	.icon-list{

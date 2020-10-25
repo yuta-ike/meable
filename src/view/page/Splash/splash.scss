@@ -5,7 +5,7 @@
 	width: 100vw;
 	height: 100vh;
 	z-index: 10;
-	background: $primary-color;
+	background: white;
 
 	font-size: 38px;
 
@@ -14,4 +14,14 @@
 	align-items: center;
 	justify-content: center;
 	transform: translateY(-1rem);
+
+	img{
+		maxWidth: 60%;
+		width: 100px;
+	}
+	p{
+		color: $primary-dark;
+		font-size: 20px;
+		padding-bottom: 2rem;
+	}
 }

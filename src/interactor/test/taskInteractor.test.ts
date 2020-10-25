@@ -24,7 +24,7 @@ describe("taskInteractor", () => {
 		expect(taskUsecase.gainPoint("0", 2)).rejects.toThrow(UnauthenticatedException)
 	})
 
-	test("タスクの追加と確認ができる", async () => {
+	test("ミッションの追加と確認ができる", async () => {
 		await userRepository.register()
 		await taskUsecase.addTask(taskInput)
 		const tasks = await taskUsecase.getAllTask()
@@ -33,7 +33,7 @@ describe("taskInteractor", () => {
 		).toBeTruthy()
 	})
 
-	test("タスクにポイントを追加できる", async () => {
+	test("ミッションにポイントを追加できる", async () => {
 		const point = 3
 		const tasks = await taskUsecase.getAllTask()
 		const task = tasks[0]
@@ -44,7 +44,7 @@ describe("taskInteractor", () => {
 		expect(newTask?.pointHistory[0].point).toBe(point)
 	})
 
-	test("タスクの変更を購読できる", async () => {
+	test("ミッションの変更を購読できる", async () => {
 		const taskInput2: AddTaskInput = { title: "課題2", body: "課題2の説明", genre: 2 }
 		const promise = new Promise((resolve, _) => {
 			taskUsecase.subscribe((tasks) => {
@@ -57,7 +57,7 @@ describe("taskInteractor", () => {
 		).resolves.toBe(taskInput2.title)
 	})
 
-	test("存在しないタスクにはポイントを追加できない", async () => {
+	test("存在しないミッションにはポイントを追加できない", async () => {
 		expect(taskUsecase.gainPoint("ABCDEFGHIJ", 1)).rejects.toThrow(TaskUnfoundException)
 	})
 

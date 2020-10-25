@@ -19,7 +19,7 @@ const TaskComplete: React.FC = () => {
 	if(task == null){
 		return (
 			<div>
-				タスクがみつかりませんでした
+				ミッションがみつかりませんでした
 			</div>
 		)
 	}

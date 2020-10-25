@@ -19,7 +19,6 @@ export default class TaskDatasource implements ITaskDatasource {
 			const tasks = snapshots.docs.map(snapshot => Task.fromJson(snapshot.id, snapshot.data() as any))
 			callback(tasks.sort((a, b) => {
 				if (a.updatedAt == null || b.updatedAt == null){
-					console.log("NONO")
 					return 0
 				}else{
 					return a.updatedAt > b.updatedAt ? 1 : a.updatedAt < b.updatedAt ? -1 : 0

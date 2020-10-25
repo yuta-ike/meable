@@ -10,7 +10,7 @@ describe("TaskRepository", () => {
 	const task1 = generateTask("1")
 	const task2 = generateTask("2")
 
-	test("タスクの追加と取得", async () => {
+	test("ミッションの追加と取得", async () => {
 		// const taskRepository: ITaskRepository = new TaskRepository(taskDatasource)
 		
 		// await taskRepository.addTask(userId1, task1)
@@ -20,7 +20,7 @@ describe("TaskRepository", () => {
 		// expect(tasks).toEqual(expect.arrayContaining([task1, task2]))
 	})
 
-	test("タスクの追加と取得2", async () => {
+	test("ミッションの追加と取得2", async () => {
 		// const taskRepository: ITaskRepository = new TaskRepository(taskDatasource)
 
 		// await taskRepository.addTask(userId2, task1)

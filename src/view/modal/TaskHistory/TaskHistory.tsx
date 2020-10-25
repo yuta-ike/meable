@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Modal from 'react-modal'
 import { useTaskUsecase } from 'src/Adapter/TaskProvider'
-import { Genre } from 'src/data/model/types/genre'
 import useRouting from 'src/view/router/useRouting'
-import getGenre from '../genre/sdgs'
 
 type Props = {
 	isOpen: boolean,
 }
-
 
 const TaskHistory: React.FC<Props> = ({ isOpen }) => {
 	const moveTo = useRouting()

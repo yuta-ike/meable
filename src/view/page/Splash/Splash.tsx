@@ -3,7 +3,8 @@ import React from 'react'
 const Splash = () => {
 	return (
 		<div className="splash">
-			<p>MeAble</p>
+			<img src="/img/logo.png" alt="ロゴ画像"/>
+			<p>よみこみちゅう...</p>
 		</div>
 	)
 }

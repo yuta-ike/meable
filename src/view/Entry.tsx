@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import TaskProvider from 'src/Adapter/TaskProvider'
+import { Switch, Route, Redirect } from "react-router-dom"
 import PrivateRoute from './router/PrivateRouter'
 import Home from './page/Home/Home'
-import TaskComplete from './page/TaskComplete/TaskComplete'
 import UnauthorizedRouter from './router/UnauthorizedRouter'
 import Login from './page/Login/Login'
-import UserProvider from 'src/Adapter/UserProvider'
 import Logout from './page/Logout/Logout'
 import Register from './page/Register/Register'
 import UnregisteredRouter from './router/UnregisteredRouter'
@@ -15,8 +12,12 @@ import { useEffect } from 'react'
 import { firebaseAuth } from 'src/firebase/initFirebaes'
 import Scanner from './page/Scanner/Scanner'
 import QRPage from './page/QRPage/QRPage'
+import SchoolLogin from './page/SchoolLogin/SchoolLogin'
+import SchoolHome from './page/SchoolHome/SchoolHome'
 
 const Entry: React.FC = () => {
+	const isSchool = window.location.hostname.indexOf("school.") > -1
+	console.log(isSchool)
 	// TODO: Repository層に依存してしまっている
 	// xxUseCaseにinitializingフラグを追加して読む
 	const [isLoading, setIsLoading] = useState(true)
@@ -27,10 +28,16 @@ const Entry: React.FC = () => {
 	}, [])
 
 	return (
-		<Router>
-			<TaskProvider>
-				<UserProvider>
-					<Route path="/" children={isLoading && Splash} />
+		<>
+			<Route path="/" children={isLoading && Splash} />
+			{
+				isSchool ? (
+					<Switch>
+						<Route exact path="/login" component={SchoolLogin} />
+						<Route exact path="/" component={SchoolHome} />
+						<Redirect to="/"/>
+					</Switch>
+				) : (
 					<Switch>
 						<UnauthorizedRouter exact path="/login" component={Login} />
 						<UnauthorizedRouter exact path="/logout" component={Logout} />
@@ -42,10 +49,11 @@ const Entry: React.FC = () => {
 						<PrivateRoute exact path="/task/:taskId" render={(props) => <Home showTaskDialog={true} taskId={props.match.params.taskId}/>} />
 						<PrivateRoute exact path="/history" component={() => <Home showHistoryDialog={true} />} />
 						<PrivateRoute exact path="/scanner" component={Scanner}/>
+						<Redirect to="/"/>
 					</Switch>
-				</UserProvider>
-			</TaskProvider>
-		</Router>
+				)
+			}
+		</>
 	)
 }
 

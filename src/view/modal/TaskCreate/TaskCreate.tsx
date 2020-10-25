@@ -69,12 +69,14 @@ const TaskCreateModal: React.FC<Props> = ({ isOpen }) => {
 			{
 				page === 0 ? (
 					<div className="task-create-modal">
-						<div className="task-modal-title" role="heading">あたらしいタスク</div>
-						<label htmlFor="task-create-title-label">タスクのなまえ</label>
+						<div className="task-modal-title" role="heading">あたらしいミッション</div>
+						<label htmlFor="task-create-title-label">ミッションのなまえ</label>
 						<input type="text" id="task-create-title" className="task-create-title" value={title} onChange={e => setTitle(e.target.value)}/>
-						<label htmlFor="task-create-description-modal">タスクのせつめい</label>
+						{title.length > 25 && <div className="error-message">タイトルは25もじまでだよ</div>}
+						<label className="task-create-description-label" htmlFor="task-create-description-modal">ミッションのせつめい</label>
 						<textarea className="task-create-description" id="task-create-description" rows={3} value={description} onChange={e => setDescription(e.target.value)}/>
-						<label>SDGsを えらぼう</label>
+						{description.length > 100 && <div className="error-message">せつめいは100もじまでだよ</div>}
+						<label className="sdgs-label">SDGsを えらぼう</label>
 						{genre != null && <div className="selected-genre">{genre}. {getGenre(genre).text}</div>}
 						<div className="icon-wrapper">
 							{
@@ -87,7 +89,7 @@ const TaskCreateModal: React.FC<Props> = ({ isOpen }) => {
 										role="button"
 									/>
 								) : (
-									<div className="icon" onClick={() => setTimeout(() => setPage(1), 300)} role="button"/>
+									<div className="icon gray-icon" onClick={() => setTimeout(() => setPage(1), 300)} role="button">タップしてせんたく</div>
 								)
 							}
 						</div>
@@ -104,7 +106,7 @@ const TaskCreateModal: React.FC<Props> = ({ isOpen }) => {
 					</div>
 				) : (
 					<div className="task-create-modal">
-						<div className="task-modal-title" role="heading">あたらしいタスク</div>
+						<div className="task-modal-title" role="heading">あたらしいミッション</div>
 						<label className="task-genre-label">SDGsを えらんで ください</label>
 						<div className="icon-list">
 							{

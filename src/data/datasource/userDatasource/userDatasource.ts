@@ -23,10 +23,7 @@ export default class UserDatasource implements IUserDatasource{
 				this.appUser = null
 			}else{
 				try{
-					console.log("AAA", user?.uid)
-					// const snapshots = await firestore.collectionGroup("Students").where("userId", "==", user?.uid).get()
 					const snapshot = await firestore.collection("Affiliation").doc(user.uid).get()
-					console.log("BBB")
 					if (!snapshot.exists) {
 						this.appUser = toAppUser(user)
 					}else{

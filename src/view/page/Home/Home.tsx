@@ -65,7 +65,7 @@ const Home: React.FC<Prop> = ({ taskId, showTaskDialog = false, showCreateDialog
 				}
 				{
 					tasks.length === 0 &&
-					<p>タスクは まだ とうろくされて いません</p>
+					<p>ミッションは まだ とうろくされて いません</p>
 				}
 			</div>
 			<nav className="bottom-bar">
@@ -119,7 +119,7 @@ const Home: React.FC<Prop> = ({ taskId, showTaskDialog = false, showCreateDialog
 				<div className="task-modal">
 					<div className="task-title" role="heading">
 						{
-							modalType === "point-gained" ? "ポイントをゲット！" :
+							modalType === "point-gained" ? "ミッションクリア！" :
 							modalType === "task-created" ? "ついか かんりょう！" : ""
 						}
 					</div>
