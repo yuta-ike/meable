@@ -1,5 +1,5 @@
 # MeAble
-Social CreatorsハッカソンのAチームの実装です。
+Social CreatorsハッカソンのAチームの実装です。読み方はミエブル。
 [サービスはこちらから！ぜひ使ってみてください](https://social-creators-kyoto.web.app/)
 
 **🏆 🏆 🏆 チームで優秀賞、個人でエンジニア賞をいただきました！！！！！！！！！！嬉しい！！！！！！！！！！！！ 🏆 🏆 🏆**
